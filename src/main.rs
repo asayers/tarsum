@@ -1,3 +1,4 @@
+use bytesize::ByteSize;
 use clap::Parser;
 use sha1::Digest;
 use std::fs::File;
@@ -17,8 +18,9 @@ fn main() -> anyhow::Result<()> {
             let mut data = vec![];
             slice.read_to_end(&mut data)?;
             println!(
-                "{}\t{:x}",
+                "{}\t{:>8} {:x}",
                 hdr.path()?.display(),
+                ByteSize::b(hdr.size()?).to_string(),
                 sha1::Sha1::digest(&data)
             );
         }

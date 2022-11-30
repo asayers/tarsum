@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.66"
+bytesize = "1.1.0"
 clap = { version = "4.0.29", features = ["derive"] }
 fileslice = { version = "0.2.1", features = ["tar"], default-features = false }
 sha1 = "0.10.5"
