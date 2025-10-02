@@ -5,8 +5,8 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.100"
+blake3 = "1.8.2"
 bpaf = { version = "0.9.20", features = ["derive"] }
 bytesize = "2.1.0"
 fileslice = { version = "0.6.0", features = ["tar"], default-features = false }
-sha1 = "0.10.6"
 tar = "0.4.44"

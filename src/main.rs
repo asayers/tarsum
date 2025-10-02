@@ -1,6 +1,5 @@
 use bpaf::Bpaf;
 use bytesize::ByteSize;
-use sha1::Digest;
 use std::fs::File;
 use std::io::Read;
 use std::path::PathBuf;
@@ -20,10 +19,10 @@ fn main() -> anyhow::Result<()> {
             let mut data = vec![];
             slice.read_to_end(&mut data)?;
             println!(
-                "{}\t{:>8} {:x}",
+                "{}\t{:>8} {}",
                 hdr.path()?.display(),
                 ByteSize::b(hdr.size()?).to_string(),
-                sha1::Sha1::digest(&data)
+                blake3::hash(&data)
             );
         }
     }
